@@ -1,0 +1,8 @@
+.flipbox-wrapper {perspective: 800px; perspective-origin: 50% 50%;}
+.flipbox-wrapper .flipbox-box {position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition-property: transform;}
+.flipbox-wrapper .flipbox-box .flipbox-side {position: absolute; width: 100%; height: 100%; backface-visibility: hidden;}
+.flipbox-wrapper .flipbox-box .flipbox-side.flipbox-front {transform: translateZ(0);}
+.flipbox-wrapper .flipbox-box .flipbox-side.flipbox-left {transform-origin: center left;}
+.flipbox-wrapper .flipbox-box .flipbox-side.flipbox-right {transform-origin: top right;}
+.flipbox-wrapper .flipbox-box .flipbox-side.flipbox-top {transform-origin: top center;}
+.flipbox-wrapper .flipbox-box .flipbox-side.flipbox-bottom {transform-origin: bottom center;}

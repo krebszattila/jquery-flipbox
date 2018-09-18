@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jquery-flipbox</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Patua+One">
+        <link rel="stylesheet" href="../src/jquery.flipbox.css">
+        <style>
+            body {text-align: center; font-family: Arial, sans-serif; margin: 10px 0;}
+            h1 {margin: 20px 0; font-size: 48px; font-family: 'Patua One', cursive; font-weight: 400;}
+            h2 {margin: 0; font-size: 36px; font-family: 'Patua One', cursive; font-weight: 400;}
+            p {margin: 0; font-size: 16px;}
+            button {margin: 2px; border: 1px solid #888; outline: none; background: #aaa; line-height: 20px; cursor: pointer;}
+            button:hover {background: #bbb;}
+            .item {display: inline-block; margin: 30px 40px; text-align: center; vertical-align: top; font-size: 0;}
+            .box {width: 400px; height: 280px; margin: 30px 0; font-size: initial;}
+            .box .side {line-height: 280px; font-size: 80px; font-weight: 700; color: #fff; text-align: center; user-select: none;}
+            .box .side.side1 {background: #3366CC;}
+            .box .side.side2 {background: #DC3912;}
+            .box .side.side3 {background: #FF9900;}
+            .box .side.side4 {background: #109618;}
+            .box .side.side5 {background: #990099;}
+            .box .side.side6 {background: #3B3EAC;}
+            .box .side.side7 {background: #0099C6;}
+            .box .side.side8 {background: #DD4477;}
+            .clock {width: 460px; height: 70px; margin: 30px 0;}
+            .clock .box {display: inline-block; width: 40px; height: 60px; margin: 2px;}
+            .clock .box .side {width: 40px; height: 60px; line-height: 60px; font-size: 40px; background: #000;}
+            .clock span {display: inline-block; width: 10px; height: 60px; line-height: 60px; margin: 2px; font-size: 40px; vertical-align: top;}
+            .grid {width: 420px; height: 280px; margin: 30px 0;}
+            .grid .box {float: left; width: 60px; height: 60px; margin: 5px;}
+            .grid .box .side {width: 60px; height: 60px;}
+        </style>
+    </head>
+    <body>
+        <h1>jquery-flipbox</h1>
+        <p>Source and documentation on <a href="https://github.com/krebszattila/jquery-flipbox">GitHub</a></p>
+        <div class="item">
+            <h2>Horizontal</h2>
+            <div class="box" id="box1">
+                <div class="side side1">1</div>
+                <div class="side side2">2</div>
+                <div class="side side3">3</div>
+                <div class="side side4">4</div>
+                <div class="side side5">5</div>
+                <div class="side side6">6</div>
+                <div class="side side7">7</div>
+                <div class="side side8">8</div>
+            </div>
+            <button class="prev reverse">&#9668; prev</button>
+            <button class="prev">&#9658; prev</button>
+            <button class="next reverse">&#9668; next</button>
+            <button class="next">&#9658; next</button>
+            <br>
+            <button class="jump reverse" data-index="0">&#9668; 1</button>
+            <button class="jump reverse" data-index="1">&#9668; 2</button>
+            <button class="jump reverse" data-index="2">&#9668; 3</button>
+            <button class="jump reverse" data-index="3">&#9668; 4</button>
+            <button class="jump reverse" data-index="4">&#9668; 5</button>
+            <button class="jump reverse" data-index="5">&#9668; 6</button>
+            <button class="jump reverse" data-index="6">&#9668; 7</button>
+            <button class="jump reverse" data-index="7">&#9668; 8</button>
+            <br>
+            <button class="jump" data-index="0">&#9658; 1</button>
+            <button class="jump" data-index="1">&#9658; 2</button>
+            <button class="jump" data-index="2">&#9658; 3</button>
+            <button class="jump" data-index="3">&#9658; 4</button>
+            <button class="jump" data-index="4">&#9658; 5</button>
+            <button class="jump" data-index="5">&#9658; 6</button>
+            <button class="jump" data-index="6">&#9658; 7</button>
+            <button class="jump" data-index="7">&#9658; 8</button>
+        </div>
+        <div class="item">
+            <h2>Vertical</h2>
+            <div class="box" id="box2">
+                <div class="side side1">1</div>
+                <div class="side side2">2</div>
+                <div class="side side3">3</div>
+                <div class="side side4">4</div>
+                <div class="side side5">5</div>
+                <div class="side side6">6</div>
+                <div class="side side7">7</div>
+                <div class="side side8">8</div>
+            </div>
+            <button class="prev reverse">&#9650; prev</button>
+            <button class="prev">&#9660; prev</button>
+            <button class="next reverse">&#9650; next</button>
+            <button class="next">&#9660; next</button>
+            <br>
+            <button class="jump reverse" data-index="0">&#9650; 1</button>
+            <button class="jump reverse" data-index="1">&#9650; 2</button>
+            <button class="jump reverse" data-index="2">&#9650; 3</button>
+            <button class="jump reverse" data-index="3">&#9650; 4</button>
+            <button class="jump reverse" data-index="4">&#9650; 5</button>
+            <button class="jump reverse" data-index="5">&#9650; 6</button>
+            <button class="jump reverse" data-index="6">&#9650; 7</button>
+            <button class="jump reverse" data-index="7">&#9650; 8</button>
+            <br>
+            <button class="jump" data-index="0">&#9660; 1</button>
+            <button class="jump" data-index="1">&#9660; 2</button>
+            <button class="jump" data-index="2">&#9660; 3</button>
+            <button class="jump" data-index="3">&#9660; 4</button>
+            <button class="jump" data-index="4">&#9660; 5</button>
+            <button class="jump" data-index="5">&#9660; 6</button>
+            <button class="jump" data-index="6">&#9660; 7</button>
+            <button class="jump" data-index="7">&#9660; 8</button>
+        </div>
+        <div class="item">
+            <h2>Speed & Easing</h2>
+            <div class="box" id="box3">
+                <div class="side side1">1</div>
+                <div class="side side2">2</div>
+                <div class="side side3">3</div>
+                <div class="side side4">4</div>
+                <div class="side side5">5</div>
+                <div class="side side6">6</div>
+                <div class="side side7">7</div>
+                <div class="side side8">8</div>
+            </div>
+            <button class="config" data-duration="1200" data-easing="ease">&#9658; slow</button>
+            <button class="config" data-duration="600" data-easing="ease">&#9658; medium</button>
+            <button class="config" data-duration="200" data-easing="ease">&#9658; fast</button>
+            <br>
+            <button class="config" data-duration="600" data-easing="linear">&#9658; linear</button>
+            <button class="config" data-duration="600" data-easing="ease">&#9658; ease</button>
+            <button class="config" data-duration="600" data-easing="cubic-bezier(0.68, -0.55, 0.265, 1.55)">&#9658; custom</button>
+        </div>
+        <div class="item">
+            <h2>Autoplay</h2>
+            <div class="box" id="box4">
+                <div class="side side1">1</div>
+                <div class="side side2">2</div>
+                <div class="side side3">3</div>
+                <div class="side side4">4</div>
+                <div class="side side5">5</div>
+                <div class="side side6">6</div>
+                <div class="side side7">7</div>
+                <div class="side side8">8</div>
+            </div>
+        </div>
+        <div class="item">
+            <h2>Mouse Enter Flip</h2>
+            <div class="grid">
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+                <div class="box">
+                    <div class="side side1"></div>
+                    <div class="side side2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <h2>Dynamic content</h2>
+            <div class="box" id="box5">
+                <div class="side side1">&nbsp;</div>
+                <div class="side side2">&nbsp;</div>
+            </div>
+        </div>
+        <div class="item">
+            <h2>Clock</h2>
+            <div class="clock">
+                <div class="box">
+                    <div class="side">0</div>
+                    <div class="side">1</div>
+                    <div class="side">2</div>
+                    <div class="side">3</div>
+                    <div class="side">4</div>
+                    <div class="side">5</div>
+                    <div class="side">6</div>
+                    <div class="side">7</div>
+                    <div class="side">8</div>
+                    <div class="side">9</div>
+                </div>
+                <div class="box">
+                    <div class="side">0</div>
+                    <div class="side">1</div>
+                    <div class="side">2</div>
+                    <div class="side">3</div>
+                    <div class="side">4</div>
+                    <div class="side">5</div>
+                    <div class="side">6</div>
+                    <div class="side">7</div>
+                    <div class="side">8</div>
+                    <div class="side">9</div>
+                </div>
+                <span>:</span>
+                <div class="box">
+                    <div class="side">0</div>
+                    <div class="side">1</div>
+                    <div class="side">2</div>
+                    <div class="side">3</div>
+                    <div class="side">4</div>
+                    <div class="side">5</div>
+                    <div class="side">6</div>
+                    <div class="side">7</div>
+                    <div class="side">8</div>
+                    <div class="side">9</div>
+                </div>
+                <div class="box">
+                    <div class="side">0</div>
+                    <div class="side">1</div>
+                    <div class="side">2</div>
+                    <div class="side">3</div>
+                    <div class="side">4</div>
+                    <div class="side">5</div>
+                    <div class="side">6</div>
+                    <div class="side">7</div>
+                    <div class="side">8</div>
+                    <div class="side">9</div>
+                </div>
+                <span>:</span>
+                <div class="box">
+                    <div class="side">0</div>
+                    <div class="side">1</div>
+                    <div class="side">2</div>
+                    <div class="side">3</div>
+                    <div class="side">4</div>
+                    <div class="side">5</div>
+                    <div class="side">6</div>
+                    <div class="side">7</div>
+                    <div class="side">8</div>
+                    <div class="side">9</div>
+                </div>
+                <div class="box">
+                    <div class="side">0</div>
+                    <div class="side">1</div>
+                    <div class="side">2</div>
+                    <div class="side">3</div>
+                    <div class="side">4</div>
+                    <div class="side">5</div>
+                    <div class="side">6</div>
+                    <div class="side">7</div>
+                    <div class="side">8</div>
+                    <div class="side">9</div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="../src/jquery.flipbox.js"></script>
+
+        <script>
+            // Horizontal
+            $('#box1').flipbox({
+                vertical: false
+            });
+
+            // Vertical
+            $('#box2').flipbox({
+                vertical: true
+            });
+
+            // Speed & Easing
+            $('#box3').flipbox({
+                vertical: false
+            });
+
+            // Autoplay
+            $('#box4').flipbox({
+                vertical: false,
+                autoplay: true,
+                autoplayReverse: false,
+                autoplayWaitDuration: 2000,
+                autoplayPauseOnHover: true
+            });
+
+            // Mouse Enter Flip
+            $('.grid .box').each(function(index) {
+                $(this).flipbox({
+                    vertical: Math.random() * 2 < 1
+                });
+            }).mouseenter(function() {
+                $(this).flipbox('next', Math.random() * 2 < 1);
+            });
+
+            // Dynamic content
+            $('#box5').flipbox();
+            var index = 0;
+            var lorem = 'lorem ipsum dolor sit amet'.split(' ');
+            setInterval(function() {
+                $('#box5').flipbox('replace', '<div class="side side1">' + (lorem[index % lorem.length]) + '</div>', 0);
+                $('#box5').flipbox('replace', '<div class="side side2">' + (lorem[index % lorem.length]) + '</div>', 1);
+                index++;
+                if (index % lorem.length === 0) {
+                    $('#box5').flipbox('next');
+                }
+            }, 500);
+
+            // Clock
+            $('.clock .box').flipbox({
+                vertical: true
+            });
+            function updateClock() {
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+                $('.clock .box:eq(0)').flipbox('jump', Math.floor(hours / 10));
+                $('.clock .box:eq(1)').flipbox('jump', hours % 10);
+                $('.clock .box:eq(2)').flipbox('jump', Math.floor(minutes / 10));
+                $('.clock .box:eq(3)').flipbox('jump', minutes % 10);
+                $('.clock .box:eq(4)').flipbox('jump', Math.floor(seconds / 10));
+                $('.clock .box:eq(5)').flipbox('jump', seconds % 10);
+            }
+            setInterval(updateClock, 1000);
+            updateClock();
+
+            // Buttons
+            $('button.prev').click(function() {
+                $(this).closest('.item').find('.box').flipbox('prev', $(this).hasClass('reverse'));
+            });
+            $('button.next').click(function() {
+                $(this).closest('.item').find('.box').flipbox('next', $(this).hasClass('reverse'));
+            });
+            $('button.jump').click(function() {
+                $(this).closest('.item').find('.box').flipbox('jump', $(this).data('index'), $(this).hasClass('reverse'));
+            });
+            $('button.config').click(function() {
+                $(this).closest('.item').find('.box')
+                    .flipbox({
+                        animationDuration: $(this).data('duration'),
+                        animationEasing: $(this).data('easing')
+                    })
+                    .flipbox('next');
+            });
+        </script>
+    </body>
+</html>
